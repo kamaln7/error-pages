@@ -3,19 +3,14 @@ const fs = require('fs')
 const template = require('lodash.template')
 
 // functions
-const readErrors = () => {
-    const file = fs.readFileSync('./errors.yaml', 'utf8')
-    return YAML.parse(file)
-}
-
-const readTemplate = () => fs.readFileSync('./template.html', 'utf8')
-
-const renderer = (tmpl) => template(tmpl)
+const readFile = (path) => fs.readFileSync(path, 'utf8')
+const readErrors = (path) => YAML.parse(readFile(path))
 
 // generate templates
-const errors = readErrors()
-const tmpl = readTemplate()
-const render = renderer(tmpl)
+const errors = readErrors('./errors.yaml')
+const tmpl = readFile('./template.html')
+const render = template(tmpl)
+
 for (error of errors) {
     [code, text] = Object.entries(error)[0]
     console.log(`Processing ${code}...`)
