@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "node ./generate.js"
+  },
+  "dependencies": {
+    "lodash.template": "^4.4.0",
+    "yaml": "^1.0.0-rc.8"
+  }
+}

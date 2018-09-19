@@ -1,0 +1,5 @@
+---
+- 404: Not found
+- 403: Forbidden
+- 502: Bad gateway
+- 500: Internal server error
